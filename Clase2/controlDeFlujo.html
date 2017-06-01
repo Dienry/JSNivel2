@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Control de flujo
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//Condicionales
+		/*var numero1 = parseInt(prompt("Ingrese el primer numero a comparar"));
+		var numero2 = parseInt(prompt("Ingrese el segundo numero a comparar"));
+
+		if (numero1 > numero2) {
+			console.log("El segundo numero es menor");
+		} else if(numero1 < numero2){
+			console.log("El primer numero es menor");
+		} else {
+			console.log("Son iguales");
+		}
+ 
+		//Condicional ternario
+		numero1 > numero2 ? console.log("El segundo numero es menor") : console.log("El primer numero es menor");*/
+
+	//Loops
+		/*for (var i = 0; i < 10; i++) {
+			console.log("Numero:", i);
+		};*/
+		
+		var dias = ["Lunes", "Martes", "Domingo", "Miercoles", "Jueves", "Viernes", "Sabado"];
+
+		for (dia in dias){
+			if (dias[dia] === "Sabado" || dias[dia] === "Domingo") {
+				console.log("Hoy es", dias[dia], "Es fin de semana!");
+				break;
+			};
+		}
+
+		/*var nivel = "Principiante";
+		switch (nivel){
+			case "Avanzado":
+				console.log("Nivel avanzado");
+				break;
+			case "Medio":
+				console.log("Nivel medio");
+				break;
+			case "Principiante":
+				console.log("Nivel Principiante");
+				break;
+			default:
+				console.log("No tenes nivel");
+				break;
+		}*/
+		/*var i = 0;
+		while (i < 10){
+			console.log("Numero:", i);
+			i++;
+		}*/
+
+	</script>
+</body>
+</html>

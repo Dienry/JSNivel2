@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TP</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Ejercicio 1
+		var diaElegido = prompt("Diga un dia de la semana").toLowerCase();
+		var diasSemana = ["lunes", "martes", "domingo", "miercoles", "jueves", "viernes", "sabado"];
+		while (!diasSemana.includes(diaElegido)){
+			var diaElegido = prompt("Diga un dia de la semana").toLowerCase();
+		}
+		if (diaElegido === "sabado" || diaElegido === "domingo") {
+			console.log("Es fin de semana");
+		} else {
+			console.log("Es dia habil");
+		}
+
+		//Ejercicio 2
+		/*for (var i = 1; i <= 100; i++) {
+			if (i % 2 == 0) {
+				console.log(i);
+			};
+		};*/
+
+		/*for (var i = 1; i <= 100; i++) {
+			if (i % 2 == 1) {
+				console.log(i);
+			};
+		};*/
+	</script>
+</body>
+</html>
