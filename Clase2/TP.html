@@ -5,8 +5,8 @@
 </head>
 <body>
 	<script type="text/javascript">
-		//Ejercicio 1
-		var diaElegido = prompt("Diga un dia de la semana").toLowerCase();
+		//Ejercicio TP
+		/*var diaElegido = prompt("Diga un dia de la semana").toLowerCase();
 		var diasSemana = ["lunes", "martes", "domingo", "miercoles", "jueves", "viernes", "sabado"];
 		while (!diasSemana.includes(diaElegido)){
 			var diaElegido = prompt("Diga un dia de la semana").toLowerCase();
@@ -15,20 +15,81 @@
 			console.log("Es fin de semana");
 		} else {
 			console.log("Es dia habil");
-		}
+		}*/
 
 		//Ejercicio 2
+		//mostrar los numeros pares
 		/*for (var i = 1; i <= 100; i++) {
 			if (i % 2 == 0) {
 				console.log(i);
 			};
 		};*/
 
+		//mostrar los numeros impares
 		/*for (var i = 1; i <= 100; i++) {
 			if (i % 2 == 1) {
 				console.log(i);
 			};
 		};*/
+
+		//Ejercicio 3
+		/*var numero = Math.floor(Math.random()*11);
+		console.log("Tu numero es",numero);
+		if (numero === 0) {
+			console.log("Has perdido el juego!");
+		} else if (numero >= 1 && numero <= 3) {
+			console.log("Tienes 5 puntos");
+		} else if (numero >= 4 && numero <=6) {
+			console.log("Tienes 10 puntos");
+		} else if (numero >= 7 && numero <=9) {
+			console.log("Tienes 50 puntos");
+		} else if (numero === 10) {
+			console.log("Has ganado el juego!");
+		} else {
+			console.log("Funciono mal el juego");
+		}*/
+
+		//Ejercicio 4
+		var opciones = ["piedra", "papel", "tijera"];
+		var elecciónRandom = opciones[Math.floor(Math.random()*3)];
+		var elecciónUsuario = prompt("Elija piedra, papel o tijera").toLowerCase();
+
+		while (!(opciones.includes(elecciónUsuario))){
+			var elecciónUsuario = prompt("Elija piedra, papel o tijera").toLowerCase();
+		}
+
+		console.log("Usuario", elecciónUsuario);
+		console.log("Maquina", elecciónRandom);
+
+		if (elecciónUsuario === "piedra") {
+			if (elecciónRandom === "piedra") {
+				alert("Empataron");
+			} else if (elecciónRandom === "papel") {
+				alert("Perdiste!");
+			} else {
+				alert("Ganaste!");
+			}
+		}
+
+		if (elecciónUsuario === "papel") {
+			if (elecciónRandom === "piedra") {
+				alert("Ganaste!");
+			} else if (elecciónRandom === "papel") {
+				alert("Empataron");
+			} else {
+				alert("Perdiste!");
+			}
+		}
+		
+		if (elecciónUsuario === "tijera") {
+			if (elecciónRandom === "piedra") {
+				alert("Perdiste!");
+			} else if (elecciónRandom === "papel") {
+				alert("Ganaste!");
+			} else {
+				alert("Empataron");
+			}
+		}
 	</script>
 </body>
 </html>
