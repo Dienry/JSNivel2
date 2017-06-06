@@ -17,22 +17,21 @@
 			console.log("Es dia habil");
 		}*/
 
-		//Ejercicio 2
+		//Ejercicio 1
 		//mostrar los numeros pares
-		/*for (var i = 1; i <= 100; i++) {
-			if (i % 2 == 0) {
-				console.log(i);
-			};
-		};*/
+		/*var mensajePar = "Estos son los numeros pares: ";
+		var mensajeInpar = "Estos son los numeros impares";
+		for (var numero = 1; numero <= 100; numero++) {
+			if (numero % 2 === 0) {
+				mensajePar += numero + " ";
+			} else{
+				mensajeInpar += numero + " ";
+			}
+		};
+		console.log(mensajePar);
+		console.log(mensajeInpar);*/
 
-		//mostrar los numeros impares
-		/*for (var i = 1; i <= 100; i++) {
-			if (i % 2 == 1) {
-				console.log(i);
-			};
-		};*/
-
-		//Ejercicio 3
+		//Ejercicio 2
 		/*var numero = Math.floor(Math.random()*11);
 		console.log("Tu numero es",numero);
 		if (numero === 0) {
@@ -49,7 +48,7 @@
 			console.log("Funciono mal el juego");
 		}*/
 
-		//Ejercicio 4
+		//Ejercicio 3
 		var opciones = ["piedra", "papel", "tijera"];
 		var elecciónRandom = opciones[Math.floor(Math.random()*3)];
 		var elecciónUsuario = prompt("Elija piedra, papel o tijera").toLowerCase();
@@ -61,26 +60,26 @@
 		console.log("Usuario", elecciónUsuario);
 		console.log("Maquina", elecciónRandom);
 
-		if (elecciónUsuario === "piedra") {
-			if (elecciónRandom === "piedra") {
-				alert("Empataron");
+		/*if (elecciónUsuario === "piedra") {
+			if (elecciónRandom === "tijera") {
+				alert("Ganaste!");
 			} else if (elecciónRandom === "papel") {
 				alert("Perdiste!");
 			} else {
-				alert("Ganaste!");
+				alert("Empataron");
 			}
 		}
 
 		if (elecciónUsuario === "papel") {
 			if (elecciónRandom === "piedra") {
 				alert("Ganaste!");
-			} else if (elecciónRandom === "papel") {
-				alert("Empataron");
-			} else {
+			} else if (elecciónRandom === "tijera") {
 				alert("Perdiste!");
+			} else {
+				alert("Empataron++±");
 			}
 		}
-		
+
 		if (elecciónUsuario === "tijera") {
 			if (elecciónRandom === "piedra") {
 				alert("Perdiste!");
@@ -89,6 +88,23 @@
 			} else {
 				alert("Empataron");
 			}
+		}*/
+
+		switch (elecciónUsuario){
+			case elecciónRandom:
+				alert("Empate!");
+				break;
+			case "piedra":
+				elecciónRandom == "papel" ? alert("Perdiste!") : alert("Ganaste");
+				break;
+			case "papel":
+				elecciónRandom == "tijera" ? alert("Perdiste!") : alert("Ganaste");
+				break;
+			case "tijera":
+				elecciónRandom == "piedra" ? alert("Perdiste!") : alert("Ganaste");
+				break;
+			default:
+				alert("Hubo un error!");
 		}
 	</script>
 </body>
