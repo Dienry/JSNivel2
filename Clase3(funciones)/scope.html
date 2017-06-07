@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alcance de las variables</title>
+</head>
+<body>
+	<h1>Dif entre variables globales y locales</h1>
+	<script type="text/javascript">
+		var sumaTotal = 0; //Variable global
+		
+		function suma() {
+			var resultado = 0; //Variable local
+
+			for (numero in arguments) {
+				resultado += arguments[numero];
+			}
+
+			return resultado;
+		}
+
+		console.log("La suma es", suma(3, 7, 2, 5));
+	</script>
+</body>
+</html>
