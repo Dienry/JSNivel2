@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objetos</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*var auto = {
+		  color: "rojo",
+		  puertas: 4,
+		  ruedas: 4,
+		  arranque: function(){
+		    return "Vroom vroom";
+		  }
+		}*/
+
+		// auto.color  // lo mismo que auto["color"];
+		// auto.arranque();
+		// auto.color = "azul"; //Cambia el atributo;
+		// auto;
+
+		/*var persona = {
+		  nombre: "Diego",
+		  apellido: "Vega",
+		  edad: 27,
+		  estudia: true,
+		  peliculasFavoritas: ["yo, robot", "Baseketball", "Kill bill"],
+		  saludar: function() {
+    		return "Hola! mi nombre es: " + this.nombre + " " + this.apellido + " y tengo " + this.edad + " años.";
+		}
+
+		// persona.peliculasFavoritas.push("Rush Hour")
+		// persona.peliculasFavoritas
+		for (pelicula in persona.peliculasFavoritas){
+		  console.log(persona.peliculasFavoritas[pelicula])
+		}
+
+		var count = 0;
+		while (count < persona.peliculasFavoritas.length){
+		  console.log(persona.peliculasFavoritas[count]);
+		  count++;
+		}
+
+		for (var dato in persona){  //MUY IMPORTANTE PONER EL var para que me cree la variable como local
+		  console.log(dato);
+		}
+
+		for (var dato in persona){
+		  if(dato == "edad"){
+		    console.log("Mi edad es: " + persona[dato]);
+		  }
+		}
+
+		console.log(persona.saludar())*/
+
+		/*var calculadora = {
+		  sumar: function(){
+		    var total = 0;
+		    
+		    for (numero in arguments) {
+						total += arguments[numero];
+					}
+
+				return total;
+		  },
+		  restar: function(){
+		    var resultado = arguments[0];
+
+					for (var numero = 1; numero < arguments.length; numero++) {
+							resultado -= arguments[numero];
+						}
+
+					return resultado;
+		  }
+		}
+
+		console.log(calculadora.sumar(2, 7, 1, 10));
+		console.log(calculadora.restar(20, 30, 10));*/
+
+		//Crear un objeto con constructor. EMPIEZAN CON MAYUSCULA LOS CONSTRUCTORES
+		function Auto(){
+		  this.color = "";
+		  this.puertas = 0;
+		  this.arranque = function(){
+		    console.log("Vroooom");
+		  };
+		}		
+	</script>
+</body>
+</html>
