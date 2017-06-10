@@ -6,9 +6,38 @@
 <body>
 	<script type="text/javascript">
 		var misPeliculas = [];
+		function Pelicula(tituloP){
+	      this.id = null;
+	      this.titulo = tituloP;
+	      this.descripcion = "";
+	      this.anio = 0;
+	      this.duracion = "";
+	      this.actores = [];
+	      this.director = [];
+	    }
 
+		var pelicula1 = new Pelicula();
+		pelicula1.id = 1;
+		pelicula1.titulo = "Snatch";
+		pelicula1.descripcion = "Cerdos y diamantes";
+		pelicula1.anio = 2005;
+		pelicula1.duracion = "2hs";
+		pelicula1.actores = ["Brad Pitt"];
+		pelicula1.director = ["Tarantino"];
 
-		function agregarPelicula(){
+		var pelicula2 = new Pelicula();
+		pelicula2.id = 2;
+		pelicula2.titulo = "Ice Age";
+		pelicula2.descripcion = "El deshielo";
+		pelicula2.anio = 2010;
+		pelicula2.duracion = "1:30hs";
+		pelicula2.actores = ["Mani", "Cid", "Diego"];
+		pelicula2.director = ["Neandertal"];
+
+		misPeliculas.push(pelicula1);
+		misPeliculas.push(pelicula2);
+
+		/*function agregarPelicula(){
 		  var id = 1;
 		  while(confirm("¿Quiere agregar pelicula?")){
 		    var titulo = prompt("Ingrese titulo de la pelicula");
@@ -30,6 +59,9 @@
 		    
 		    function Pelicula(tituloP){
 		      this.id = null;
+		      this.descripcion = "";
+		      this.anio = 0;
+		      this.duracion = "";
 		      this.titulo = tituloP;
 		      this.actores = [];
 		    }
@@ -44,51 +76,106 @@
 		  }
 		  
 		  console.log(misPeliculas);
-		}
+		}*/
 
-		function modificarPelicula(id){
-			for (var peli in misPeliculas){
-				console.log(misPeliculas[peli]);
+		function modificarPelicula(){
+			var atributosAModificar = [];
+			var atributosPelicula = ["titulo", "descripcion", "anio", "duracion", "actores", "director"];
+			var atributo = prompt("¿Que atributo desea modificar? (titulo, descripcion, anio, duracion, actores, director)").toLowerCase();
+
+			while(!atributosPelicula.includes(atributo)){
+				var atributo = prompt("Ingrese una opcion valida \n¿Que atributo desea modificar? (titulo, descripcion, anio, duracion, actores, director)").toLowerCase();
 			}
-			var idPelicula = parseInt(prompt("Ingrese el id de la pelicula que desea modificar"));
-			var listaAtributos = ["titulo", "descripcion", "anio", "duracion", "actores", "director"];
-/*			for (var i = 0; i < misPeliculas.length; i++) {
-				if (misPeliculas[i].id == id) {
-					idPelicula = misPeliculas[i];
+			atributosAModificar.push(atributo);
+
+			while (confirm("¿Desea agregar otro atributo a modificar?")){
+				var atributo = prompt("¿Que atributo desea modificar? (titulo, descripcion, anio, duracion, actores, director)").toLowerCase();
+				while(!atributosPelicula.includes(atributo)){
+				var atributo = prompt("Ingrese una opcion valida \n¿Que atributo desea modificar? (titulo, descripcion, anio, duracion, actores, director)").toLowerCase();
 				}
-			}*/
-			var metodo = prompt("¿Que atributo desea modificar? (titulo - descripcion - anio - duracion - actores - director)");
-			while(!listaAtributos.includes(metodo)){
-				var metodo = prompt("¿Que atributo desea modificar? (titulo - descripcion - anio - duracion - actores - director)");
+				atributosAModificar.push(atributo);
 			}
 
-			switch(metodo){
-				case "titulo":
-					modificarTitulo();
-					break;
-				case "descripcion":
-					modificarDescripcion();
-					break;
-				case "anio":
-					modificarAnio();
-					break;
-				case "duracion":
-					modificarDuracion();
-					break;
-				case "actores":
-					modificarActores();
-					break;
-				case "director":
-					modificarDirectores();
-					break;
-				default:
-					alert("Opcion incorrecta");
-					break;
+			var idPelicula = parseInt(prompt("Ingrese el id de la pelicula que desea modificar"));
+
+			if (! isNaN(idPelicula)) {
+				for (var a = 0; a < atributosAModificar.length; a++) {
+					switch(atributosAModificar[a]){
+						case "titulo":
+							for(i in misPeliculas){
+								var peli = misPeliculas[i];
+								console.log("peli;", peli);
+								console.log("peli.id", peli.id);
+								if (peli.id == idPelicula) {
+									peli.titulo = prompt("Ingrese el nuevo titulo de la pelicula");
+								}
+							}
+							break;
+						case "descripcion":
+							for(i in misPeliculas){
+								var peli = misPeliculas[i];
+								if (peli.id == idPelicula) {
+									peli.descripcion = prompt("Ingrese la nueva descripcion de la pelicula");
+								}
+							}
+							break;
+						case "anio":
+							for(i in misPeliculas){
+								var peli = misPeliculas[i];
+								if (peli.id == idPelicula) {
+									peli.anio = prompt("Ingrese el nuevo anio de la pelicula");
+								}
+							}
+							break;
+						case "duracion":
+							for(i in misPeliculas){
+								var peli = misPeliculas[i];
+								if (peli.id == idPelicula) {
+									peli.duracion = prompt("Ingrese la nueva duracion de la pelicula");
+								}
+							}
+							break;
+						case "actores":
+							for(i in misPeliculas){
+								var peli = misPeliculas[i];
+								if (peli.id == idPelicula) {
+									var actoresParaAgregar = [];
+									var actoresNuevos = prompt("Ingrese nombre del actor/a");
+									actoresParaAgregar.push(actoresNuevos);
+									while(confirm("¿Desea agregar un actor?")){
+								      var actoresNuevos = prompt("Ingrese nombre del actor/a");
+								      actoresParaAgregar.push(actoresNuevos);
+			   						}
+			   						peli.actores = actoresParaAgregar;
+								}
+							}
+							break;
+						case "director":
+							for(i in misPeliculas){
+								var peli = misPeliculas[i];
+								if (peli.id == idPelicula) {
+									var directoresNuevos = [];
+									while(confirm("¿Desea agregar un director?")){
+								      var director = prompt("Ingrese nombre del actor/a");
+								      directoresNuevos.push(director);
+								    }
+								    peli.director = directoresNuevos;
+								}
+							}
+							break;
+						default:
+							alert("Opcion incorrecta");
+							break;
+					}
+				}
+			} else {
+				alert("No ingreso un numero de id valido");
 			}
 		}
 
-		agregarPelicula();
-		modificarPelicula();
+		modificarPelicula("titulo", "duracion");
+		console.log(misPeliculas[0]);
+		console.log(misPeliculas[1]);
 
 	</script>
 </body>
