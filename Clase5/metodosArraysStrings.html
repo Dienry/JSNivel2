@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Metodos Arrays y Strings</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*//SOLO PARA STRINGS
+		var texto = "Habia Una Vez"; //No puedo reemplazar el char con otra cosa. texto[1] = "j", en Arrays si lo puedo hacer 
+		console.log(texto.charAt(6)); //Mejor soportado que los []
+		console.log(texto[6]);
+
+		console.log(texto.substring(1, 5));
+		console.log(texto.substring(5));
+
+		console.log(texto.toLowerCase());
+		console.log(texto.toUpperCase());
+
+		console.log(texto.split(" ")); //Separa nuestro texto en que caracter queremos que separe nuestro texto. Siempre devuelve como Array
+		console.log(texto.split("")); //Acá devuelve todo el string separado, incluyendo el espacio
+		console.log(texto.split(" ")[1]);*/
+
+		/*//SOLO PARA ARRAYS
+		var lista = ["leche", "pan", "queso"];
+		console.log(lista.toString());
+
+		lista.push("galletitas", "hamburguesas");
+		console.log(lista);
+
+		console.log(lista.join()); //Seria como el toString()
+		console.log(lista.join(" "));
+
+		var numeros = [10, 40, 20, 33, 3];
+		console.log(numeros.sort()); //Acomoda todo alfabeticamente, trata todo como String. Ver presentacion para link
+		var menorAMayor = function(a, b) { return a - b; } //Funcion para ordenar numeros 
+		console.log(numeros.sort(menorAMayor));
+
+		console.log("pop()\n",lista.pop()); //Saca el ultimo elemento permanentemente y nos lo retorna
+		console.log(lista);
+
+		console.log("reverse()\n",lista.reverse());
+
+		console.log("slice()\n",lista.slice()); //Como el substring() pero de Arrays
+		console.log(lista.slice(0, 1));
+		console.log(lista.slice(1));
+
+		console.log("splice()\n", lista.splice(3)); //Cambia el contenido de un array eliminando y agregando elementos. Devuelve los elementos eliminados! EL SEGUNDO ES LO QUE QUIERO BORRAR, SI PONGO 0 NO BORRA NADA.
+		console.log(lista.splice(2, 0, "cafe", "te"));
+		console.log(lista);*/
+
+		/*//METODOS PARA AMBOS
+		var texto = "Habia Una Vez";
+		var lista = ["leche", "pan", "queso"];
+		console.log(texto.length);
+		console.log(lista.length);
+
+		console.log(texto.indexOf("a")); //Devuelve de la primera, no de todas. Si no encuentra nada me devuelve -1. Util para buscar si un texto contiene lo que quiero. En Arrays buscas items.
+
+		console.log(texto.concat(" hace mucho tiempo"));
+		console.log(lista.concat(texto));
+		console.log(lista);
+		console.log(texto.concat(lista));
+		console.log(texto);*/
+
+	</script>
+</body>
+</html>

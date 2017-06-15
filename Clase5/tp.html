@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TP</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var misPeliculas = [];
+		function Pelicula(id, titulo){
+	      this.id = id;
+	      this.titulo = titulo;
+	    }
+
+		var pelicula1 = new Pelicula(1, "Snatch");
+		var pelicula2 = new Pelicula(2, "Titanic");
+		var pelicula3 = new Pelicula(3, "Ice Age");
+
+		misPeliculas.push(pelicula2);
+		misPeliculas.push(pelicula1);
+		misPeliculas.push(pelicula3);
+		
+
+		function agregarPelicula(){
+			var id = parseInt(prompt("Ingrese el id para la pelicula"));
+			while(isNaN(id)){
+				id = parseInt(prompt("Ingrese el id para la pelicula"));
+			}
+			var tituloPelicula = prompt("Ingrese titulo de la pelicula");
+		    
+			function agregaPeliculaALista(){
+				var peli = new Pelicula(id, tituloPelicula);
+			    misPeliculas.push(peli);
+			}
+
+		    if (misPeliculas.length == 0) {
+		    	agregaPeliculaALista();
+		    } else {
+		    	for (var i = 0; i < misPeliculas.length; i++) {
+		    		console.log(misPeliculas[i].id);
+		    		if (misPeliculas[i].id == id) {
+						console.log("El id", id, "Ya existe");
+		    			break;
+		    		} else {
+		    			agregaPeliculaALista();
+		    			break;
+		    		}
+		    	}
+		    }
+		}
+
+		function ordenarPeliculas(){
+			var valorOrdenamiento = prompt("¿Quiere ordenar por id o por título?");
+			var variablesPosibles = ["id", "titulo"];
+
+			while(!variablesPosibles.includes(valorOrdenamiento)){
+				var valorOrdenamiento = prompt("¿Quiere ordenar por id o por título?");
+			}
+
+			switch (valorOrdenamiento) {
+				case "id":
+					console.log(misPeliculas.sort(function(a, b){return parseInt(a.id) - parseInt(b.id);}));
+					break;
+				case "titulo":
+					console.log(misPeliculas.sort(function(a, b){
+						var nameA = a.titulo.toLowerCase(), nameB = b.titulo.toLowerCase();
+					    if (nameA < nameB) {
+					        return -1; 
+					    } else if (nameA > nameB){
+					        return 1;
+					    } else {
+					    	return 0; 
+					    }
+					}));
+					break;
+				default:
+					console.log("No se pudo ordenar");
+					break;
+			}
+		}
+
+		function eliminarPelicula(){
+			var id = parseInt(prompt("Ingrese el id de la pelicula a eliminar"));
+			while(isNaN(id)){
+				id = parseInt(prompt("Ingrese el id de la pelicula a eliminar"));
+			}
+
+			for (var i = 0; i < misPeliculas.length; i++){
+				//debugger;
+				console.log(misPeliculas[i]);
+				if (misPeliculas[i].id == id) {
+					misPeliculas.splice(misPeliculas.indexOf(misPeliculas[i]), 1);
+					console.log("La pelicula con el id", id, "fue eliminada");
+					break;
+				}
+			}
+		}
+		   
+
+		//agregarPelicula();
+		//ordenarPeliculas();
+		eliminarPelicula();
+		console.log(misPeliculas);
+		
+	</script>
+</body>
+</html>

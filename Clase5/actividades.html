@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var listaAutos = [];
+		function Auto(patente, peso){
+			this.patente = patente;
+			this.peso = peso;
+		}
+
+		function agregarAutosALista(){
+			for (var i = 0; i < arguments.length; i++) {
+				listaAutos.push(arguments[i]);
+			}
+		}
+
+		function Camion(pesoMaximo){
+			this.pesoMaximo = pesoMaximo;
+			this.autosCargados = [];
+			this.pesoActualCamion = 0;
+			this.patentesEnCamion = [];
+			this.agregaPatenteAutoPeso = function(Auto){
+				this.patentesEnCamion.push(Auto.patente);
+				this.autosCargados.push(Auto);
+				this.pesoActualCamion += Auto.peso;
+			};
+			this.agregarAutoACamion = function (Auto){
+				if((this.pesoActualCamion + Auto.peso) <= this.pesoMaximo){
+					if (this.patentesEnCamion.length == 0) {
+						this.agregaPatenteAutoPeso(Auto);
+					} else if (this.patentesEnCamion.indexOf(Auto.patente) == (-1)){
+						this.agregaPatenteAutoPeso(Auto);
+					} else {
+						console.log("Esta patente está duplicada; ", Auto.patente);
+					}
+				} else {
+					console.log("Ya no se le puede cargar mas peso al camion");
+					console.log("Peso maximo del camion:", this.pesoMaximo,"\nPeso actual del camion:", this.pesoActualCamion, "\nPeso del auto a agregar", Auto.peso);
+				}
+			};
+			this.listaPatentes = function(){
+				return this.patentesEnCamion;
+			};
+		}
+
+		var AAA000 = new Auto("AAA000", 2000);
+		var BBB000 = new Auto("BBB000", 2500);
+		var BBB000bis = new Auto("BBB000", 1900);
+		var CCC000 = new Auto("CCC000", 23000);
+		var camion = new Camion(25000);
+
+		camion.agregarAutoACamion(AAA000);
+		camion.agregarAutoACamion(BBB000);
+		camion.agregarAutoACamion(CCC000);
+		console.log(camion.patentesEnCamion);
+
+
+	</script>
+</body>
+</html>
