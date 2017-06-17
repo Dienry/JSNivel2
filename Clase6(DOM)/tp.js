@@ -93,21 +93,32 @@ function eliminarPelicula(){
 
 function mostrarPeliculas(){
 	var table = document.createElement("table");
-	var tr = document.createElement("tr");
-	var th = document.createElement("th");
-	var td = document.createElement("td");
+	var trHeader = document.createElement("tr");
+	var thId = document.createElement("th");
+	var thTitulo = document.createElement("th");
 	//var listaPeliculas = "<table><tr><th>Id</th><th>Titulo</th></tr>";
-	table.appendChild(tr.appendChild(th.appendChild(document.createTextNode("ID"))));
-	tr.appendChild(th.appendChild(document.createTextNode("Titulo")));
+	thId.appendChild(document.createTextNode("ID"));
+	thTitulo.appendChild(document.createTextNode("Titulo"));
+	trHeader.appendChild(thId);
+	trHeader.appendChild(thTitulo);
+	table.appendChild(trHeader);
 	for (var i = 0; i < misPeliculas.length; i++) {
+		var tr = document.createElement("tr");
+		var th = document.createElement("th");
+		var td1 = document.createElement("td");
+		var td2 = document.createElement("td");
 		//listaPeliculas += "<tr><td>" + misPeliculas[i].id + "</td><td>" + misPeliculas[i].titulo + "</td></tr>"
-		table.appendChild(tr.appendChild(td.appendChild(document.createTextNode(misPeliculas[i].id))));
-		tr.appendChild(td.appendChild(document.createTextNode(misPeliculas[i].titulo)))
+		td1.appendChild(document.createTextNode(misPeliculas[i].id));
+		td2.appendChild(document.createTextNode(misPeliculas[i].titulo));
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		table.appendChild(tr);
 	};
 
 	// listaPeliculas += "</table>";
 	// document.write(listaPeliculas);
 	document.body.appendChild(table);
+	document.getElementsByTagName("table")[0].setAttribute("id", "table");
 }
 
 document.getElementById("agregarPelicula").onclick = function(){
