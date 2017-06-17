@@ -92,6 +92,10 @@ function eliminarPelicula(){
 }
 
 function mostrarPeliculas(){
+	if (document.body.children[2] != null) {
+		document.body.children[2].remove();
+	};
+	var divTable = document.createElement("div");
 	var table = document.createElement("table");
 	var trHeader = document.createElement("tr");
 	var thId = document.createElement("th");
@@ -117,8 +121,9 @@ function mostrarPeliculas(){
 
 	// listaPeliculas += "</table>";
 	// document.write(listaPeliculas);
-	document.body.appendChild(table);
-	document.getElementsByTagName("table")[0].setAttribute("id", "table");
+	divTable.appendChild(table);
+	document.body.appendChild(divTable);
+	document.getElementsByTagName("div")[1].setAttribute("id", "divTable");
 }
 
 document.getElementById("agregarPelicula").onclick = function(){
