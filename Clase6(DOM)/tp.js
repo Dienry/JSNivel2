@@ -42,36 +42,7 @@ function agregarPeliculas(){
 	    	}
 	    }
     }
-}
-
-function ordenarPeliculas(){
-	var valorOrdenamiento = prompt("¿Quiere ordenar por id o por título?");
-	var variablesPosibles = ["id", "titulo"];
-
-	while(!variablesPosibles.includes(valorOrdenamiento)){
-		var valorOrdenamiento = prompt("¿Quiere ordenar por id o por título?");
-	}
-
-	switch (valorOrdenamiento) {
-		case "id":
-			console.log(misPeliculas.sort(function(a, b){return parseInt(a.id) - parseInt(b.id);}));
-			break;
-		case "titulo":
-			console.log(misPeliculas.sort(function(a, b){
-				var nameA = a.titulo.toLowerCase(), nameB = b.titulo.toLowerCase();
-			    if (nameA < nameB) {
-			        return -1; 
-			    } else if (nameA > nameB){
-			        return 1;
-			    } else {
-			    	return 0; 
-			    }
-			}));
-			break;
-		default:
-			console.log("No se pudo ordenar");
-			break;
-	}
+    mostrarPeliculas();
 }
 
 function eliminarPelicula(){
@@ -89,11 +60,12 @@ function eliminarPelicula(){
 			break;
 		}
 	}
+	mostrarPeliculas();
 }
 
 function mostrarPeliculas(){
-	if (document.body.children[2] != null) {
-		document.body.children[2].remove();
+	if (document.body.children["divTable"] != null) {
+		document.body.children["divTable"].remove();
 	};
 	var divTable = document.createElement("div");
 	var table = document.createElement("table");
