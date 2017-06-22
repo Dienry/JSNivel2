@@ -1,4 +1,7 @@
 var misPeliculas = [];
+var botonAgregarPelicula = document.getElementById("agregarPelicula");
+var botonEliminarPelicula = document.getElementById("eliminarPelicula");
+var botonListarPeliculas = document.getElementById("listarPeliculas");
 
 function Pelicula(id, titulo){
   this.id = id;
@@ -64,15 +67,17 @@ function eliminarPelicula(){
 }
 
 function mostrarPeliculas(){
-	if (document.body.children["divTable"] != null) {
-		document.body.children["divTable"].remove();
+	var bodyChildren = document.body.children;
+	if (bodyChildren["divTable"] != null) {
+		bodyChildren["divTable"].remove();
 	};
 	var divTable = document.createElement("div");
 	var table = document.createElement("table");
+	// var thead = document.createElement("thead");
+	// var tbody = document.createElement("tbody");
 	var trHeader = document.createElement("tr");
 	var thId = document.createElement("th");
 	var thTitulo = document.createElement("th");
-	//var listaPeliculas = "<table><tr><th>Id</th><th>Titulo</th></tr>";
 	thId.appendChild(document.createTextNode("ID"));
 	thTitulo.appendChild(document.createTextNode("Titulo"));
 	trHeader.appendChild(thId);
@@ -83,29 +88,26 @@ function mostrarPeliculas(){
 		var th = document.createElement("th");
 		var td1 = document.createElement("td");
 		var td2 = document.createElement("td");
-		//listaPeliculas += "<tr><td>" + misPeliculas[i].id + "</td><td>" + misPeliculas[i].titulo + "</td></tr>"
 		td1.appendChild(document.createTextNode(misPeliculas[i].id));
 		td2.appendChild(document.createTextNode(misPeliculas[i].titulo));
 		tr.appendChild(td1);
 		tr.appendChild(td2);
 		table.appendChild(tr);
 	};
-
-	// listaPeliculas += "</table>";
-	// document.write(listaPeliculas);
+	table.setAttribute("class", "table table-bordered table-hover");
 	divTable.appendChild(table);
 	document.body.appendChild(divTable);
 	document.getElementsByTagName("div")[1].setAttribute("id", "divTable");
 }
 
-document.getElementById("agregarPelicula").onclick = function(){
+botonAgregarPelicula.onclick = function(){
 	agregarPeliculas();
 }
 
-document.getElementById("eliminarPelicula").onclick = function(){
+botonEliminarPelicula.onclick = function(){
 	eliminarPelicula();
 }
 
-document.getElementById("listarPeliculas").onclick = function(){
+botonListarPeliculas.onclick = function(){
 	mostrarPeliculas();
 }
