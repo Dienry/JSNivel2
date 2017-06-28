@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<title></title>
+</head>
+<body>
+	<div class="form col-xs-12">
+		<form>
+			<div class="form-group  col-sm-7">
+				<label>Titulo</label>
+				<input type="text" id="tituloTarea" class="form-control">
+			</div>
+			<div class="form-group  col-sm-7">
+				<label>Descripcion</label>
+				<input type="text" id="descripcionTarea" class="form-control">
+			</div>
+		</form>
+	</div>
+	<div class="col-xs-12">
+		<button type="button" class="btn btn-success col-xs-1" id="agregarTarea">Agregar</button>
+		<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="buscarTareas">Buscar</button>
+		<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="listarTareas">Mostrar</button>
+		<button type="button" class="btn btn-info btn col-xs-1 col-xs-offset-1" id="ordenar">Ordenar</button>
+	</div>
+	<div class="divLista">
+		<ul></ul>
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
