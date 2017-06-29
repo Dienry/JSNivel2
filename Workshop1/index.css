@@ -1,3 +1,34 @@
 .leido {
 	background-color: gray;
 }
+
+ul {
+	list-style-type: none;
+}
+
+h2 {
+  	font: Verdana;
+}
+ 
+li p {
+  font: 200 12px/1.5 Georgia, serif;
+}
+ 
+li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.header {
+	background-image: url("./newspapers.jpg");
+	background-position: center;
+}
+
+.color {
+	color: #64BCFF;
+}

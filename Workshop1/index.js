@@ -1,7 +1,7 @@
 var botonAgregarTarea = document.getElementById("agregarTarea");
 var botonListarTareas = document.getElementById("listarTareas");
 var botonEliminarLista = document.getElementById("eliminarLista");
-var botonOrdenarLista = document.getElementById("ordenarTareas");
+var selectOrden = document.getElementById("selectOrden");
 var idTarea = 1;
 
 function Lista (){
@@ -21,18 +21,48 @@ function Lista (){
 	}
 	this.listarTareas = function(){
 		for (var i = 0; i < this.tareas.length; i++) {
-			this.contenedor.appendChild(this.tareas[i].contenedor);
+			this.contenedor.appendChild(this.tareas[i].contenedorTarea);
 		}
 	}
-	this.ordenarLista = function(){
-		this.tareas.sort(function(a, b) {
-			var listaOrdenada = [];
-    		listaOrdenada.push(parseInt(a.id) - parseInt(b.id));
-    		for (var i = 0; i < listaOrdenada.length; i++) {
-    			console.log(tareas);
-				this.contenedor.appendChild(listaOrdenada[i].contenedor);
-			}
-		});
+	this.ordenarLista = function(orden){
+		var listaOrdenada = [];
+		for (var i = 0; i < this.tareas.length; i++) {
+			listaOrdenada.push(this.tareas[i]);
+		}
+		if (orden == "A-Z") {
+			listaOrdenada.sort(function(a, b){
+				var tituloA=a.titulo.toLowerCase(), tituloB=b.titulo.toLowerCase()
+			    if (tituloA < tituloB) //sort string ascending
+			        return -1 
+			    if (tituloA > tituloB)
+			        return 1
+			    return 0 //default return value (no sorting)
+			})
+			for (var i = 0; i < listaOrdenada.length; i++) {
+					this.contenedor.appendChild(listaOrdenada[i].contenedorTarea);
+				}
+		} else if (orden == "Z-A"){
+			listaOrdenada.sort(function(a, b){
+				var tituloA=a.titulo.toLowerCase(), tituloB=b.titulo.toLowerCase()
+			    if (tituloA < tituloB) //sort string ascending
+			        return 1 
+			    if (tituloA > tituloB)
+			        return -1
+			    return 0 //default return value (no sorting)
+			})
+			for (var i = 0; i < listaOrdenada.length; i++) {
+					this.contenedor.appendChild(listaOrdenada[i].contenedorTarea);
+				}
+		} else if (orden == "IdDesc") {
+			listaOrdenada.sort(function(a, b) {
+    			return a.id + b.id;
+			})
+			for (var i = 0; i < listaOrdenada.length; i++) {
+					this.contenedor.appendChild(listaOrdenada[i].contenedorTarea);
+				}
+		} else {
+			this.listarTareas();
+		}
 	}
 }
 var lista = new Lista ();
@@ -43,14 +73,14 @@ function Tarea (titulo, descripcion){
 	this.titulo = titulo;
 	this.descripcion = descripcion;
 	this.completado = false;
-	this.contenedor;
+	this.contenedorTarea;
 	this.cambiarEstado = function(){
 		if (this.completado == false) {
 			this.completado = true;
-			this.contenedor.setAttribute("class", "leido");
+			this.contenedorTarea.setAttribute("class", "leido");
 		} else {
 			this.completado = false;
-			this.contenedor.removeAttribute("class", "leido");
+			this.contenedorTarea.removeAttribute("class", "leido");
 		}
 	}
 	this.editarTarea = function(){
@@ -61,8 +91,8 @@ function Tarea (titulo, descripcion){
 			var nuevaDescripcion = prompt("Ingrese la nueva descripcion de la tarea", this.descripcion);
 			this.descripcion = nuevaDescripcion;
 		}
-		this.contenedor.querySelector("h2").innerText = this.titulo;
-		this.contenedor.querySelector("p").innerText = this.descripcion;
+		this.contenedorTarea.querySelector("h2").innerText = this.titulo;
+		this.contenedorTarea.querySelector("p").innerText = this.descripcion;
 	}
 
 	this.crearHTML = function () {
@@ -77,7 +107,7 @@ function Tarea (titulo, descripcion){
 
 		var botonEstado = document.createElement("button");
 		botonEstado.innerHTML = "Leido";
-		botonEstado.setAttribute("class", "btn btn-info");
+		botonEstado.setAttribute("class", "btn btn-success");
 		botonEstado.addEventListener("click", function(){
 			self.cambiarEstado();
 		});
@@ -87,10 +117,11 @@ function Tarea (titulo, descripcion){
 		botonEliminar.setAttribute("class", "btn btn-danger");
 		botonEliminar.addEventListener("click", function(){
 			lista.eliminarTarea(self);
-			self.contenedor.parentNode.removeChild(self.contenedor);
+			self.contenedorTarea.parentNode.removeChild(self.contenedorTarea);
 		});
 		var liTarea = document.createElement("li");
 		var h2 = document.createElement("h2");
+		h2.setAttribute("class", "color");
 		h2.innerHTML = this.titulo;
 		var p = document.createElement("p");
 		p.innerHTML = this.descripcion;
@@ -99,12 +130,13 @@ function Tarea (titulo, descripcion){
 		liTarea.appendChild(botonEditar);
 		liTarea.appendChild(botonEliminar);
 		liTarea.appendChild(botonEstado);
-		this.contenedor = liTarea;
+		this.contenedorTarea = liTarea;
 	}
 }
 
 botonAgregarTarea.addEventListener("click", function(){
 	var tituloTarea = document.getElementById("tituloTarea");
+	tituloTarea.value = tituloTarea.value[0].toUpperCase() + tituloTarea.value.slice(1);
 	var descripcionTarea = document.getElementById("descripcionTarea");
 	if (tituloTarea.value == "" | descripcionTarea.value == "") {
 		alert("Por favor complete ambos campos");
@@ -126,6 +158,6 @@ botonEliminarLista.addEventListener("click", function(){
 	lista.eliminarLista();
 });
 
-botonOrdenarLista.addEventListener("click", function(){
-	lista.ordenarLista();
+selectOrden.addEventListener("change", function(){
+	lista.ordenarLista(selectOrden.value);
 });

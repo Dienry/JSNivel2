@@ -7,27 +7,39 @@
 	<title></title>
 </head>
 <body>
-	<div class="form col-xs-12">
+	<div class="header form col-xs-12">
 		<form>
-			<div class="form-group  col-sm-7">
+			<div class="form-group  col-sm-3">
 				<label>Titulo</label>
 				<input type="text" id="tituloTarea" class="form-control">
 			</div>
-			<div class="form-group  col-sm-7">
-				<label>Descripcion</label>
+			<div class="form-group  col-sm-10">
+				<label>Noticia</label>
 				<input type="text" id="descripcionTarea" class="form-control">
 			</div>
 		</form>
+		<div class="col-xs-12">
+			<button type="button" class="btn btn-success col-xs-1" id="agregarTarea">Agregar</button>
+			<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="buscarTareas">Buscar</button>
+			<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="listarTareas">Mostrar</button>
+			<button type="button" class="btn btn-danger btn col-xs-2 col-xs-offset-1" id="eliminarLista">Eliminar Todo</button>
+		</div>
+		<div class="col-xs-12"><br></div>
+		<div class="col-xs-12"><br></div>
 	</div>
-	<div class="col-xs-12">
-		<button type="button" class="btn btn-success col-xs-1" id="agregarTarea">Agregar</button>
-		<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="buscarTareas">Buscar</button>
-		<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="listarTareas">Mostrar</button>
-		<button type="button" class="btn btn-info btn col-xs-1 col-xs-offset-1" id="ordenarTareas">Ordenar</button>
-		<button type="button" class="btn btn-danger btn col-xs-2 col-xs-offset-1" id="eliminarLista">Eliminar Todo</button>
-	</div>
-	<div class="col-xs-6 divLista">
-		<ul></ul>
+	<div class="container col-xs-12">
+		<div class="col-xs-7">
+			<h2>Ordernar por</h2>
+			<select id="selectOrden">
+				<option></option>
+				<option value="A-Z">A-Z</option>
+				<option value="Z-A">Z-A</option>
+				<option value="IdDesc">Id desc</option>
+			</select>
+		</div>
+		<div class="col-xs-6 divLista">
+			<ul></ul>
+		</div>
 	</div>
 	<script type="text/javascript" src="index.js"></script>
 </body>
