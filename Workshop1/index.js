@@ -135,6 +135,7 @@ botonAgregarTarea.addEventListener("click", function(){
 	var tituloTarea = document.getElementById("tituloTarea");
 	tituloTarea.value = tituloTarea.value[0].toUpperCase() + tituloTarea.value.slice(1);
 	var descripcionTarea = document.getElementById("descripcionTarea");
+	descripcionTarea.value = descripcionTarea.value[0].toUpperCase() + descripcionTarea.value.slice(1);
 	if (tituloTarea.value == "" | descripcionTarea.value == "") {
 		alert("Por favor complete ambos campos");
 	} else {
