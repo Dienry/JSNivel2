@@ -1,6 +1,7 @@
 var botonAgregarTarea = document.getElementById("agregarTarea");
 var botonListarTareas = document.getElementById("listarTareas");
 var botonEliminarLista = document.getElementById("eliminarLista");
+var botonBuscarTarea = document.getElementById("buscarTarea");
 var selectOrden = document.getElementById("selectOrden");
 var idTarea = 1;
 
@@ -32,11 +33,11 @@ function Lista (){
 		if (orden == "A-Z") {
 			listaOrdenada.sort(function(a, b){
 				var tituloA=a.titulo.toLowerCase(), tituloB=b.titulo.toLowerCase()
-			    if (tituloA < tituloB) //sort string ascending
+			    if (tituloA < tituloB) 
 			        return -1 
 			    if (tituloA > tituloB)
 			        return 1
-			    return 0 //default return value (no sorting)
+			    return 0 
 			})
 			for (var i = 0; i < listaOrdenada.length; i++) {
 					this.contenedor.appendChild(listaOrdenada[i].contenedorTarea);
@@ -44,11 +45,11 @@ function Lista (){
 		} else if (orden == "Z-A"){
 			listaOrdenada.sort(function(a, b){
 				var tituloA=a.titulo.toLowerCase(), tituloB=b.titulo.toLowerCase()
-			    if (tituloA < tituloB) //sort string ascending
+			    if (tituloA < tituloB)
 			        return 1 
 			    if (tituloA > tituloB)
 			        return -1
-			    return 0 //default return value (no sorting)
+			    return 0
 			})
 			for (var i = 0; i < listaOrdenada.length; i++) {
 					this.contenedor.appendChild(listaOrdenada[i].contenedorTarea);
@@ -62,6 +63,19 @@ function Lista (){
 				}
 		} else {
 			this.listarTareas();
+		}
+	}
+	this.buscarTarea = function(titulo){
+		var tareaEncontrada = false;
+		for (var i = 0; i < this.tareas.length; i++) {
+			if (this.tareas[i].titulo == titulo){
+				this.contenedor.innerHTML = "";
+				this.contenedor.appendChild(this.tareas[i].contenedorTarea);
+				tareaEncontrada = true;
+			}
+		}
+		if (tareaEncontrada == false) {
+			alert("No hay ninguna tarea con ese titulo");
 		}
 	}
 }
@@ -159,3 +173,9 @@ botonEliminarLista.addEventListener("click", function(){
 selectOrden.addEventListener("change", function(){
 	lista.ordenarLista(selectOrden.value);
 });
+
+botonBuscarTarea.addEventListener("click", function(){
+	var tituloABuscar = prompt("Ponga el titulo de la tarea a buscar");
+	tituloABuscar = tituloABuscar[0].toUpperCase() + tituloABuscar.slice(1);
+	lista.buscarTarea(tituloABuscar);
+})
