@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://dienry.github.io/JSNivel2/Workshop1/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link rel="stylesheet" type="text/css" href="./gh-pages_files/index.css">
+	<link rel="stylesheet" href="./gh-pages_files/bootstrap.min.css">
+	<title></title>
+</head>
+<body>
+	<div class="header">
+		<h1>To-Do List</h1>
+	</div>
+	<div class="input form col-xs-12">
+		<form>
+			<div class="col-xs-12">
+				<div class="form-group  col-sm-3">
+					<label>Titulo</label>
+					<input type="text" id="tituloTarea" class="form-control">
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="form-group  col-sm-5">
+					<label>Tarea</label>
+					<input type="text" id="descripcionTarea" class="form-control">
+				</div>
+			</div>
+		</form>
+		<div class="col-xs-12">
+			<button type="button" class="btn btn-success col-xs-1" id="agregarTarea">Agregar</button>
+			<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="buscarTarea">Buscar</button>
+			<button type="button" class="btn btn-info col-xs-1 col-xs-offset-1" id="listarTareas">Mostrar</button>
+			<button type="button" class="btn btn-danger btn col-xs-2 col-xs-offset-1" id="eliminarLista">Eliminar Todo</button>
+		</div>
+		<div class="col-xs-7">
+			<h2>Ordernar por</h2>
+			<select id="selectOrden">
+				<option></option>
+				<option value="A-Z">A-Z</option>
+				<option value="Z-A">Z-A</option>
+				<option value="IdDesc">Id desc</option>
+			</select>
+		</div>
+		<div class="col-xs-12"><br></div>
+		<div class="col-xs-12"><br></div>
+	</div>
+	<div class="container col-xs-12">
+		<div class="col-xs-6 divLista">
+			<ul></ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="./gh-pages_files/index.js"></script>
+
+</body></html>

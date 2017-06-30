@@ -1,0 +1,52 @@
+.leido {
+	background-color: gray;
+}
+
+ul {
+	list-style-type: none;
+}
+
+h2 {
+  	font: Verdana;
+}
+ 
+li p {
+  font: 200 12px Georgia, serif;
+}
+ 
+li {
+  padding: 10px;
+  overflow: auto;
+  display: inline;
+  float: left;
+}
+ 
+img:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.header {
+	text-align: center;
+	font-family: Verdana;
+	font-weight: 1px;
+}
+
+.input {
+	background-image: url("./toDoList.jpg");
+	background-size: 100%;
+}
+
+.color {
+	color: #64BCFF;
+}
+
+body {
+	background-color: #E3E6E8;
+}
+
+img {
+	height: 20px;
+	width: 20px;
+	position: center;
+}

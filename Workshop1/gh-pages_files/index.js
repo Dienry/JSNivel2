@@ -10,7 +10,7 @@ function Lista (){
 	this.contenedor = document.querySelector("ul");
 	this.eliminarLista = function(){
 		this.tareas = [];
-		this.contenedor.innerHTML = "";
+		this.contenedor.parentNode.removeChild(this.contenedor);
 	}
 	this.eliminarTarea = function(tarea){
 		for (var i = 0; i < this.tareas.length; i++){
