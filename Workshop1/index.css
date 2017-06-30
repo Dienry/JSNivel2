@@ -11,24 +11,42 @@ h2 {
 }
  
 li p {
-  font: 200 12px/1.5 Georgia, serif;
+  font: 200 12px Georgia, serif;
 }
  
 li {
   padding: 10px;
   overflow: auto;
+  display: inline;
+  float: left;
 }
  
-li:hover {
+img:hover {
   background: #eee;
   cursor: pointer;
 }
 
 .header {
-	background-image: url("./newspapers.jpg");
-	background-position: center;
+	text-align: center;
+	font-family: Verdana;
+	font-weight: 1px;
+}
+
+.input {
+	background-image: url("./toDoList.jpg");
+	background-size: 100%;
 }
 
 .color {
 	color: #64BCFF;
+}
+
+body {
+	background-color: #E3E6E8;
+}
+
+img {
+	height: 20px;
+	width: 20px;
+	position: center;
 }

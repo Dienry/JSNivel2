@@ -98,23 +98,20 @@ function Tarea (titulo, descripcion){
 	this.crearHTML = function () {
 		var self = this;
 		
-		var botonEditar = document.createElement("button");
-		botonEditar.innerHTML = "Editar";
-		botonEditar.setAttribute("class", "btn btn-info");
+		var botonEditar = document.createElement("img");
+		botonEditar.setAttribute("src", "./edit.png");
 		botonEditar.addEventListener("click", function(){
 			self.editarTarea();
 		});
 
-		var botonEstado = document.createElement("button");
-		botonEstado.innerHTML = "Leido";
-		botonEstado.setAttribute("class", "btn btn-success");
+		var botonEstado = document.createElement("img");
+		botonEstado.setAttribute("src", "./check.png");
 		botonEstado.addEventListener("click", function(){
 			self.cambiarEstado();
 		});
 
-		var botonEliminar = document.createElement("button");
-		botonEliminar.innerHTML = "Eliminar";
-		botonEliminar.setAttribute("class", "btn btn-danger");
+		var botonEliminar = document.createElement("img");
+		botonEliminar.setAttribute("src", "./delete.png");
 		botonEliminar.addEventListener("click", function(){
 			lista.eliminarTarea(self);
 			self.contenedorTarea.parentNode.removeChild(self.contenedorTarea);
