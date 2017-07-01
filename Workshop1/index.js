@@ -11,6 +11,9 @@ function Lista (){
 	this.eliminarLista = function(){
 		this.tareas = [];
 		this.contenedor.innerHTML = "";
+		tituloTarea.value = "";
+	    descripcionTarea.value = "";
+
 	}
 	this.eliminarTarea = function(tarea){
 		for (var i = 0; i < this.tareas.length; i++){
@@ -24,6 +27,8 @@ function Lista (){
 		for (var i = 0; i < this.tareas.length; i++) {
 			this.contenedor.appendChild(this.tareas[i].contenedorTarea);
 		}
+		tituloTarea.value = "";
+	    descripcionTarea.value = "";
 	}
 	this.ordenarLista = function(orden){
 		var listaOrdenada = [];
@@ -77,6 +82,8 @@ function Lista (){
 		if (tareaEncontrada == false) {
 			alert("No hay ninguna tarea con ese titulo");
 		}
+		tituloTarea.value = "";
+	    descripcionTarea.value = "";
 	}
 }
 var lista = new Lista ();
