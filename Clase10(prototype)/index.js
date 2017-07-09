@@ -197,10 +197,15 @@ listaTrabajos.addEventListener("change", function(){
 	div.appendChild(divInputLabel("Domicilio", "domicilioEmpleado"));
 	div.appendChild(divInputLabel("Pesos x Hora", "pesosHoraEmpleado"));
 	div.appendChild(divInputLabel("Horas semanales", "horasSemanalesEmpleado"));
-
-	switch(listaTrabajos.value){
+	
+	var divExternoSelect = document.createElement("div");
+	divExternoSelect.setAttribute("class", "form-group  col-sm-12");
+	var divInternoSelect = document.createElement("div");
+	divInternoSelect.setAttribute("class", "form-group  col-sm-3");
+	switch(listaTrabajos.value){	
 		case "Profesor":
 			select.setAttribute("id", "materiaProfesor");
+			select.setAttribute("class", "styled-select gray rounded");
 			select.appendChild(option(""));
 			select.appendChild(option("Lengua"));
 			select.appendChild(option("Matematica"));
@@ -208,26 +213,34 @@ listaTrabajos.addEventListener("change", function(){
 			select.appendChild(option("Ingles"));
 			select.appendChild(option("Deportes"));
 			select.appendChild(option("Quimica"));
-			div.appendChild(select);
+			divInternoSelect.appendChild(select);
+			divExternoSelect.appendChild(divInternoSelect);
+			div.appendChild(divExternoSelect);
 			form.appendChild(div);
 			break;
 		case "Director":
 			select.setAttribute("id", "idiomaDirector");
+			select.setAttribute("class", "styled-select gray rounded");
 			select.appendChild(option(""));
 			select.appendChild(option("Castellano"));
 			select.appendChild(option("Ingles"));
-			div.appendChild(select);
+			divInternoSelect.appendChild(select);
+			divExternoSelect.appendChild(divInternoSelect);
+			div.appendChild(divExternoSelect);
 			form.appendChild(div);
 			break;
 		case "ProfesorSuplente":
 			select.setAttribute("id", "profesorAReemplazaEmpleado");
+			select.setAttribute("class", "styled-select gray rounded");
 			select.appendChild(option(""));
 			for (var i = 0; i < colegio.empleados.length; i++) {
 				if (colegio.empleados[i].trabajo == "Profesor") {
 					select.appendChild(option(colegio.empleados[i].nombre + " " +  colegio.empleados[i].apellido));
 				}
 			}
-			div.appendChild(select);
+			divInternoSelect.appendChild(select);
+			divExternoSelect.appendChild(divInternoSelect);
+			div.appendChild(divExternoSelect);
 			form.appendChild(div);
 			break;
 		case "Limpieza":

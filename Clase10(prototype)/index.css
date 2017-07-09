@@ -5,3 +5,49 @@
 .btn {
 	margin-left: 4px;
 }
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.divTitulo {
+	margin-bottom: 10px;
+}
+
+select::-ms-expand {
+    display: none;
+}
+.styled-select {
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px;
+   width: 268px;
+}
+
+.styled-select.slate {
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.gray { background-color: #EFECEC; }
