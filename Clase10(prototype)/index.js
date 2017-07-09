@@ -95,7 +95,7 @@ Colegio.prototype.buscarEmpleado = function(){
 			table.setAttribute("class", "table table-hover");
 			divTable.appendChild(table);
 			divTable.setAttribute("id", "divTable");
-			divTable.setAttribute("class", "col-xs-6");
+			divTable.setAttribute("class", "col-xs-10");
 			this.contenedor.appendChild(divTable);
 			empleadoEncontrado = true;
 			break;
