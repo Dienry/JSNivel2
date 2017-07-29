@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Environmental Footprint</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div class="header col-xs-12">
+		<h4 class=" col-md-offset-1 col-md-8 col-xs-12">Los hábitos alimentarios tienen implicancias sociales, ambientales y económicas siendo un eje de trabajo importante para el Desarrollo Sustentable.
+		Según datos de la Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO) un tercio de los alimentos producidos en todo el mundo se pierde o desecha durante la etapa de producción y de consumo, representando el equivalente a 300 millones de toneladas. Esta cantidad que se desperdicia sería suficiente para alimentar a 900 millones de personas con déficit de alimentación en todo el mundo.
+		Por otro lado el sistema alimenticio mundial tiene profundas implicancias para el medio ambiente por la sobreexplotación de los recursos.</h4>
+	</div>
+	<div class="choice col-md-offset-1 col-md-6">
+		<button class="button" id="alimentario">Mis hábitos Alimentarios</button>
+		<button class="button" id="agua">Huella de Agua</button>
+		<button class="button" id="ecologica">Huella Ecologica</button>
+	</div>
+	<div id="formContainer" class="col-md-9"></div>
+	<div class="twitterContainer col-md-3">
+	    <a class="twitter-timeline"  href="https://twitter.com/hashtag/huellaAmbiental" data-widget-id="891098460673511424">
+	    	Tweets sobre #huellaAmbiental
+	    </a>
+		<script>
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+		</script>
+	</div>
+	<div class="modalContainer">
+		<div class="overLay"></div>
+		<div id="modal">
+			<button class="modalClose">X</button>
+			<div class"col-xs-12">
+				<h3></h3>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
